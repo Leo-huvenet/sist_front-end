@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ 
+<style type="text/css">
+
+</style>
+<!-- JQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+$( function() {
+    $( "#datepicker" ).datepicker({
+      showOn: "button",
+      buttonImage: "images/calendar_ico.png",
+      buttonImageOnly: true,
+      buttonText: "Select date",
+      appendText: "(yy-mm-dd)",
+      autoSize: true,
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "yy-mm-dd",
+      dayNamesMin: [ "일", "월", "화", "수", "목", "금", "토" ],
+      monthNamesShort: [ "1월	", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월",]
+    });
+  });
+</script>
+</head>
+<body>
+	<p>Date: <input type="text" id="datepicker"></p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.137/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+/*function test(){
+	var msg = "오늘은 월요일 입니다.";
+	function inFunc(){
+		alert("중첩정의한 함수");
+	}
+	alert("test호출 "+msg);
+}
+
+test();
+
+//함수안의 변수(지역변수)를 외부에서 호출(함수안의 변수와 함수는 전역이 아닌이상 호출이 불가능하다.)
+alert(test.msg);//호출불가
+test.inFunc();//호출불가
+*/
+
+//()을 사용한 클로져
+//1. closure의 선언
+var clo=({
+	name : "한상민 ",
+	addr : function () {
+		return "서울시 강남구 역삼동";		
+	},
+	age : function(year){
+		var date = new Date();
+		return date.getFullYear()-year+1;
+	}
+})
+//2. 사용 : 함수기호 "()" 사용하지 않고 함수를 호출하면 함수의 내용이 문자열로 반환된다.
+//함수의 정해진 일을 수행하지 옷한다.
+alert(clo.name + " / "+clo.addr())
+</script>
+</head>
+<body>
+
+</body>
+</html>

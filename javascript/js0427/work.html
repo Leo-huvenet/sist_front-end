@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.137/html_prj/common/css/main.css"/>
+<style type="text/css">
+div{border: 1px solid #333; width: 180px; height: 50px; font-size: 20px; font-weight: bold; text-align: left; background-color: #fffd9c}	
+</style>
+<script type="text/javascript">
+	
+	var rnArr = new Array();
+	
+	document.write("<div>6개 무작위 숫자</div>");	
+	for(i = 0; i < 5; i++){
+		for(var a =0; a<6; a++){
+			rnArr[a] = parseInt(Math.random()*45)+1;
+			for(var b = 0; b < a; b++){
+				if(rnArr[a] == rnArr[b]){
+					a--;
+					break;
+				}
+			}
+		}
+		document.write("<div>");	
+		for(j = 0; j < rnArr.length; j++){
+			document.write(rnArr[j]+" ");	
+		}
+		document.write("</div>");	
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

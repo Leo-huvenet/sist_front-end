@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.137/html_prj/common/css/main.css"/>
+<style type="text/css">
+	table{ border-radius: 20px; margin: auto; margin-top: 50px; width: 310px; } 
+	label{text-align: center; font-weight: bold;}
+	#bt{text-align: center; font-weight: bold; font-size: 15px; height: 75px; width: 80px; }
+
+</style>
+<script type="text/javascript">
+
+	function getValue(){
+		var name = document.getElementById("name").value;
+		var rsn = document.getElementById("rsn").value;
+		var birth = "19"+rsn.substring(0, 2)+"-"+rsn.substring(2,4)+"-"+rsn.substring(4,6);
+		var date = new Date();
+		var age = parseInt(date.getFullYear()) - parseInt("19"+rsn.substring(0, 2)) + 1
+		var foreigner = "";
+		var gender ="";
+		var human = function(){
+			if(rsn.charAt(7) == 1 || rsn.charAt(7) == 3){
+				gender = "남자"
+				foreigner = "내국인"
+			}else if(rsn.charAt(7) == 2 || rsn.charAt(7) == 4){
+				gender = "여자"
+				foreigner = "내국인"
+			}else if(rsn.charAt(7) == 5 || rsn.charAt(7) == 7){
+				gender = "남자"
+				foreigner = "외국인"
+			}else if(rsn.charAt(7) == 6 || rsn.charAt(7) == 8){
+				gender = "여자"
+				foreigner = "외국인"	
+			}
+		}
+		
+	 if(rsn.length == 14){
+			if(rsn.charAt(6) == "-"){
+			human(rsn);
+			alert("이름 : "+name+"\n"
+					+"생년월일 : "+birth+"\n"
+					+"나이 : "+age+"\n"
+					+"성별 : "+gender+"\n"
+					+"외국인여부 : "+foreigner+"\n"
+					+"띠 : "+"\n"
+					+"주민번호유효성 : "+"\n"				
+			);
+		
+			}else{	
+				alert("‘-’이 없습니다.");
+			}
+		}else{
+			alert("주민번호는 14자리이어야합니다.");
+		} 
+
+	}//getValue
+
+</script>
+</head>
+<body>
+<!-- 숙제.
+입력 버튼을 누르면 “이름”과”주민번호”를  받는다.
+000000 (6) - 0000000(14)
+주민번호가 14자리가 아니면 경고창으로 “주민번호는 14자리이어야합니다.”
+주민번호의 7번째 자리에 ‘-’이 없다면 경고창(alert)으로 ‘-’이 없습니다.
+경고창에 아래의 내용을 출력.
+     생년월일 : 1988-1-1
+     나이       : 20살
+     성별       : 남자 | 여자
+     외국인여부   :  내국인 | 외국인
+     띠          : 호랑이띠
+     주민번호유효성 :  정상번호 | 비정상번호
+ -->
+<form action="#" id = rsnf>
+<fieldset>
+<table >
+<tr> 
+	<td><label>이름</label></td>
+	<td colspan="2" height="50px"><input type="text" value="유경우"  id = "name" class="inputBox" ></td>
+	<td rowspan="2" width="80px"><input type="button" value="입력"  id = "bt" class="btn"  onclick="getValue()"/> </td>
+</tr>
+<tr> 
+	<td><label>주민번호</label></td>
+	<td colspan="2" height="50px"><input type="password"  id = "rsn" class="inputBox" autofocus="autofocus" ></td>
+</tr>
+</table>
+</fieldset>
+</form>
+</body>
+</html>

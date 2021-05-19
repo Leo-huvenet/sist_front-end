@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.137/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+	table{margin-left: 20px; border-spacing: 0px;  border-top: 2px solid #888; border-bottom: 1px solid #e1e3e4;}
+	
+	tr{width:1040px; height:60px;}
+	th{border-bottom: 1px solid #e1e3e4; width:150px; height:60px; padding: 10px; font-size: 14px; color: #222; background: #f9f8f8;}
+	td{border-bottom: 1px solid #e1e3e4; width:890px; height:60px;}
+	
+	.write{margin-top: 60px; text-align:  left;} 
+	.necessary{color: #ea1c5b; margin-right: 3px;} 
+	.txt{margin-left: 15px; width: 250px; height: 35px; } 
+	.bt{margin-left: 15px; width: 130px; height: 37px; font-size: 15px; font-weight: normal;}
+	.font{font-size: 14px; color: #444; vertical-align: middle;}
+	.chbox{height: 15px; width: 15px}
+	.addr{margin-left: 15px; margin-top: 5px; margin-bottom: 5px; width: 600px; height: 35px;} 
+	
+	#radio{margin-left: 20px; font-size: 15px}
+	#passSpan{padding-left: 30px; padding-right: 30px}
+	#btn_Confirm{height: 35px; width: 120px; background-color: #04264c; color: white; font-size:  9pt}
+	#btn_Cancel{height: 35px; width: 120px; background-color: #87888a; color: white; font-size:  9pt}
+	
+</style>
+<script type="text/javascript">
+	
+	var obj = document.frm;
+	
+	function passCheck(){
+	
+	var pass = obj.pass.value;
+	var passCh = obj.passCh.value;
+	
+	 if(pass !== passCh){
+		alert("비밀번호와 비밀번호 확인을 동일하게 입력해주세요.");
+		obj.pass.value =" ";
+		obj.passCh.value =" ";
+		} 
+	}
+	
+	function popupCenter(){
+		window.open("work_popup.html","ID CHECK","width = 700, height = 420, top ="
+				+(window.sceenTop+100)+",left =" +(window.creenleft + 100));
+	}
+	
+</script>
+</head>
+
+<body>
+<form action="#" name ="frm"  class = "write">
+<table>
+	<tbody>
+		<tr> 
+			<th> 
+				<span class = "necessary">*</span>아이디 
+			</th> 
+			<td> 
+				<input type="text"  name ="txtid" class="txt inputBox">
+				<input type="button" value="ID 중복확인" name = "btId" class = "btn bt" onclick="popupCenter()">
+			</td>
+		</tr>
+			<tr> 
+			<th>
+				<span class = "necessary">*</span>비밀번호
+			</th>
+			<td >
+				<input type="password"  name="pass" id ="pass" class="txt inputBox">
+				<span id = passSpan class ="font">비밀번호 확인</span>
+				<input type="password"  name ="passCh"  id = "passCh"  class="txt inputBox" onblur="passCheck()">
+			</td>
+		</tr>
+			<tr> 
+			<th>
+				<span class = "necessary">*</span>이름
+			</th>
+			<td>
+				<input type="text" name ="name" class="txt inputBox"/>	
+			</td>
+		</tr>
+			<tr> 
+			<th>
+				<span class = "necessary">*</span>생일
+			</th>
+			<td>
+				<input type="text" style="width: 190px;" name ="birth" class="txt inputBox"/>
+			</td>
+		</tr>
+			<tr> 
+			<th>
+				&nbsp;&nbsp;연락처
+			</th>
+			<td>
+				<input type="text" style="width: 190px;" name ="contact" class="txt inputBox"/>
+			</td>
+		</tr>
+			<tr> 
+			<th>
+				<span class = "necessary">*</span>휴대폰
+			</th>
+			<td>
+				<input type="text" style="width: 190px;" name ="phone" class="txt inputBox"/>&emsp;
+				<input type ="checkbox" name="chSusin" value="reception" class ="chbox"/><span class = "font">&emsp;수신</span>
+			</td>
+		</tr>
+			<tr> 
+			<th>
+				<span class = "necessary">*</span>이메일
+			</th>
+			<td>
+				<input type="text" name ="email" class="txt inputBox"/>
+				<span class = "font">&emsp;@&emsp;</span>
+				<select name ="email" class="txt inputBox" style="text-align: center; text-align-last: center ">
+					<option value="none">선택해주세요.</option>
+					<option value="gmail.com">gmail.com</option>
+					<option value="daum.net">daum.net</option>
+					<option value="hotmail.com">hotmail.com</option>
+					<option value="naver.com">naver.com</option>
+					<option value="nate.com">nate.com</option>
+				</select>
+			</td>
+		</tr>
+			<tr> 
+			<th>
+				<span class = "necessary">*</span>성별
+			</th>
+			<td>
+			<div id = "radio"> 
+				<input type="radio" value="남자" name ="gender"/>&nbsp;남자&emsp;
+				<input type="radio" value="여자" name ="gender"/>&nbsp;여자
+			</div>
+			</td>
+		</tr>
+			<tr> 
+			<th>
+				&nbsp;&nbsp;소재지
+			</th>
+			<td>
+				<select name ="location" class="txt inputBox" style="text-align: center; text-align-last: center; width: 200px">
+					<option value="none">선택해주세요.</option>
+					<option value="강원">강원</option>
+					<option value="경기">경기</option>
+					<option value="경남">경남</option>
+					<option value="경북">경북</option>
+					<option value="광주">광주</option>
+					<option value="대구">대구</option>
+					<option value="대전">대전</option>
+					<option value="부산">부산</option>
+					<option value="서울">서울</option>
+					<option value="울산">울산</option>
+					<option value="인천">인천</option>
+					<option value="전남">전남</option>
+					<option value="전북">전북</option>
+					<option value="제주">제주</option>
+					<option value="충남">충남</option>
+					<option value="충북">충북</option>
+					<option value="해외">해외</option>
+				</select>
+			</td>
+		</tr>
+		<tr> 
+			<th>
+					<span class = "necessary">*</span>우편번호
+			</th>
+			<td>
+				<input type="text"  name ="zip" class="txt inputBox"/>
+				<input type="button" value="우편번호검색" name = "zip" class = "btn bt" >
+				
+			</td>
+		</tr>
+		<tr> 
+			<th>
+				<span class = "necessary">*</span>주소
+			</th>
+		
+			<td>
+				<input type="text" name ="addr" class="addr inputBox"/>
+				<input type="text" name ="addr" class="addr inputBox"/>
+			</td>
+		</tr>
+	
+		<tr>
+			<td colspan="2" style="text-align: center; height: 100px;">
+			<input type="button" value="확인 " id ="btn_Confirm"> <input type="reset" value="취소" id = "btn_Cancel">
+			</td>
+		</tr>
+	</tbody>
+</table>
+</form>
+</body>
+</html>

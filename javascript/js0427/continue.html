@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.137/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+//continue : 반복문의 실행 횟수를 건너 뛸 때
+// 1~50까지 홀수의 합 구하기
+var total = 0;
+for(var i = 1; i <50; i++){
+	if(i%2 == 0){// 짝수인경우 반복문의 수행을 건너뛰고, 증.감소식으로 이동
+		continue;
+	}
+	total+=i;		
+}
+document.write("1~50까지의 홀수의 합 : "+total+"<br/>");
+
+//break : switch~case, for, while, do~while 빠져나갈 때.
+for(var i = 1; i <50; i++){
+	document.write("i="+i+",<br/>");
+	if(i == 10){
+		braek;
+	}	
+}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

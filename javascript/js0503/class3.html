@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.137/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+function NullCheck(){
+	this.chkNull = function(value){
+		var flag = value == null || value == "";	
+		return flag;
+	}
+}
+
+window.onload = function(){
+	document.getElementById("btn").addEventListener("click", test);
+}		
+
+function test(){
+	var obj = document.frm;
+	var name = obj.name.value;
+	//널체크하는 클래스를 생성하여 객체화하여 널 체크.
+	var nc = new NullCheck();
+	if(nc.chkNull(name)){
+		alert("이름은 필수 입력!!!")
+		obj.name.focus();
+		return;
+	}
+}
+
+
+</script>
+</head>
+<body>
+<form name = "frm">
+	<input type = "text" name = "name" class ="inputBox"/>
+	<input type = "button"  value = "값 얻기" class ="btn"/>
+</form>
+</body>
+</html>

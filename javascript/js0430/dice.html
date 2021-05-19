@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.137/html_prj/common/css/main.css"/>
+<style type="text/css">
+	/* margin: 0px auto; : div를 가운데정렬 */
+	#wrap{ width: 900px; height: 1000px; margin: 0px auto; }
+	/* header 시작 */
+	#header{ width: 900px; height: 160px;  position: relative; 
+				background: url(http://211.63.89.137/html_prj/common/images/header.png) #FFFFFF repeat-x}
+	#headerTitle{ width: 800px; height: 50px;  position: absolute; top: 40px; left:100px;
+					font-weight: bold; font-family: 고딕,godic,sans-serif; font-size: 50px}
+	/* header 끝 */
+	/* container 시작 */
+	#container{ width: 900px; height: 700px; }
+	/* container 끝 */
+	/* footer 시작 */
+	#footer{ width: 900px; height: 140px;  }
+	#footerTitle{ width: 450px; height: 30px; float:right; margin-right: 20px; margin-top: 40px; 
+					font-weight: bold; font-family: 고딕,godic,sans-serif; font-size: 20px}
+	/* footer 끝 */
+	.txt{margin-bottom: 10px; margin-left: 7px; margin-right:  7px}
+	
+</style>
+
+<script type="text/javascript">
+window.onload=function(){
+	document.getElementById("nameBt").addEventListener("click", setName);	
+	document.getElementById("throw").addEventListener("click", gameStart);	
+}
+
+	cnt1 = 0;
+	cnt2 = 0;
+	score1 = 0;
+	score2 = 0;
+
+function setDice1(){
+	
+			var dice1 = parseInt(Math.random()*6)+1;
+			var dice2 = parseInt(Math.random()*6)+1;
+
+			var img1=document.getElementById("dice1");
+			var img2=document.getElementById("dice2");
+			
+			img1.src = "images/dice_"+dice1+".png";
+			img2.src = "images/dice_"+dice2+".png";
+			
+			score1 += dice1+dice2;
+		}	
+		
+function setDice2(){
+			
+			var dice1 = parseInt(Math.random()*6)+1;
+			var dice2 = parseInt(Math.random()*6)+1;
+		
+			var img1=document.getElementById("dice1");
+			var img2=document.getElementById("dice2");
+			
+			img1.src = "images/dice_"+dice1+".png";
+			img2.src = "images/dice_"+dice2+".png";
+	
+			score2 += dice1+dice2;
+		}	
+
+function setName(){
+		
+		var obj = document.diceFrm;
+		var name1 = obj.p1.value;
+		var name2 = obj.p2.value;
+		
+		if(obj.p1.value == ""){
+			alert("이름1은 필수 입력");
+			obj.p1.focus();
+			return;
+		}		
+		
+		if(obj.p2.value == ""){
+			alert("이름2은 필수 입력");
+			obj.p2.focus();
+			return;
+		}
+		
+		document.getElementById("p1Name").innerHTML = name1;
+		document.getElementById("p2Name").innerHTML = name2;
+	}
+	
+function gameStart(){
+	
+	var obj = document.diceFrm;
+	var radio1 = obj.turn[0].checked;
+	var radio2 = obj.turn[1].checked;
+	var name1 = obj.p1.value;
+	var name2 = obj.p2.value;
+
+	if(name1 == "" && name2 == ""){
+		alert("이름을 먼저 입력해주세요.")
+	}else if(name1 == ""){
+		alert("이름1을 먼저 입력해주세요.")
+	}else if(name2 == ""){
+		alert("이름2를 먼저 입력해주세요.")
+	}
+	
+	if(radio1 == true && name1 != ""){
+		setDice1();		
+		cnt1++
+		
+		if(cnt1 == 1 || cnt1 == 2 ){
+			document.diceFrm.turn[0].disabled = true;	
+			document.diceFrm.turn[1].disabled = false;	
+			document.diceFrm.turn[1].checked = true;
+		}
+		
+		if(cnt1 == 3){
+			document.diceFrm.turn[0].disabled = true;
+			document.diceFrm.turn[1].disabled = false;	
+			document.diceFrm.turn[1].checked = true;
+		}	
+	}
+
+	if(radio2 == true && name2 != ""){
+		setDice2();	
+		cnt2++
+		
+		if(cnt1 == 1 || cnt1 == 2 ){
+			document.diceFrm.turn[1].disabled = true;	
+			document.diceFrm.turn[0].disabled = false;	
+			document.diceFrm.turn[0].checked = true;
+		}
+		
+		if(cnt1 == 3){
+			document.diceFrm.turn[1].disabled = true;	
+			document.diceFrm.turn[0].checked = true;
+			
+			var winner ="";
+			if(score1 > score2){
+				winner = name1
+			}else{
+				winner = name2	
+			}
+			
+			alert("게임 종료\n\n"+name1+" 점수 : "+ score1 +"\n"+name2+" 점수 : "+ score2
+						+"\n\n"+winner+" 승리!!");
+		}	
+	}	
+}	
+</script>
+</head>
+
+<body>
+<div id = "wrap">
+	<div id="header">
+		<div id="headerTitle">
+			Class 4. KyeongWooDesign
+		</div>
+	</div>
+	<div id="container">
+	<div>
+	<form name = "diceFrm">
+		<div id = "playerDiv">
+		<label>이름 1</label>
+		<input type="text" name = "p1" class ="inputBox txt">
+		<label>이름 2</label>
+		<input type="text" name = "p2" class ="inputBox txt">		
+		<input type="button" value="입력" class ="btn" id=nameBt>			
+		</div>
+		<div id="turnDiv" style="margin-bottom: 20px">
+		<input type="radio" name="turn"  value="p1" checked="checked"><span id="p1Name"></span>
+		<input type="radio" name="turn" value="p2" disabled="disabled"><span id="p2Name"></span>
+		<input type="button" value="던지기" class ="btn" id="throw">	
+		<input type="button" value="게임 초기화" class ="btn" onclick = "location.reload();">	
+		</div>
+		<div id ="diceDiv">
+		<img src = "images/dice_1.png" id ="dice1"/>
+		<img src = "images/dice_1.png" id ="dice2"/>
+		</div>
+		</form>
+	</div>
+	</div>
+	<div id="footer">
+		<div id ="footerTitle">
+			Copyright(C) 2021 Class 4, All Right Reserved.
+		</div>
+	</div>	
+</div>
+
+</body>
+</html>

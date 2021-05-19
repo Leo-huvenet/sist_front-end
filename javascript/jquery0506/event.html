@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.137/html_prj/common/css/main.css"/>
+<style type="text/css">
+	img{border: 1px solid #333}
+</style>
+<!-- JQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//클릭
+	$("#clickEvt").click(function() {
+		alert("클릭!!")
+	})
+	
+	//커서가 빠져나가면
+	//$("#f_o").blur(function() { 
+	$("#f_o").focusout(function() { 
+		
+		alert("커서나감!!")
+	})
+	
+	$("#f_i").focusin(function() {
+		alert("커서들어옴!!")
+	})
+	
+	$("#k_d").keydown(function(evt) {
+		alert("키눌릴 때 : "+evt.which +" / 입력된 글자수 : "+ kdVal.length); 
+	})
+	
+	$("#k_u").keyup(function(evt) {
+		alert("키올라올 때 : "+evt.which); 
+	})
+	
+	//SELECT에서 다른 OPTION이 선택 될 때
+	$("#chg").change(function() {
+		alert("변경");
+	})
+	
+	//마우스포인터가 올라올 때
+	//$("#m_u").mouseover(function() {
+	$("#m_u").mouseenter(function() {	
+		alert("마우스 포인터가 올라왔음");
+	})
+	
+	$("#m_o").mouseout(function() {
+		alert("마우스 포인터가 빠져나감");
+	})
+	
+})//document.ready
+
+
+</script>
+</head>
+<body>
+	<div>
+		<strong>이벤트</strong>
+		<br/>
+		<form name = "frm">
+		<input type="button" value="클릭" class="btn" id = "clickEvt" /><br/>
+		<input type="text" value="커서가 빠져나가면 " class="InputBox" id = "f_o" /><br/>
+		<input type="text" value="커서가 들어오면 " class="InputBox" id = "f_i" /><br/>
+		<label>키눌릴 때</label><input type="text" class="InputBox" id = "k_d" name = "kd"/><br/>
+		<label>키올라올 때</label><input type="text" class="InputBox" id = "k_u" /><br/>
+		<select id ="chg">
+			<option>A</option>			
+			<option>B</option>			
+		</select><br/>
+		<label>마우스포인터가 올라오면</label><br/><img src ="../common/images/img1.png"  id ="m_u"><br/>
+		<label>마우스포인터가 빠져나가면</label><br/><img src ="../common/images/img2.png"  id ="m_o"><br/>
+		</form>
+	</div>
+</body>
+</html>

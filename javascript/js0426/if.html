@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type ="text/css" href ="http://211.63.89.137/html_prj/common/css/main.css"/>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+var name = prompt("이름을 입력해 주세요.","홍길동");
+var age = prompt("나이를 입력해 주세요.",19);
+//입력된 이름이 '송준희'일 때만 글자를 흘러가게 만들자.
+if(name  == "송준희"){
+	document.write("<marquee scrollamount = '15'>");
+}
+	document.write(name);
+if(name  == "송준희"){
+	document.write("</marquee>");
+}
+
+// 나이를 입력받아서 19세 이상이면 common/images/img1.png(라이언)를 출력하고 그렇지 않다면
+// common/images/img2.png(무지)를 출력
+if(age >=19){
+	document.write("<br/><img src =' ../common/images/img1.png'/>");	
+}else{
+	document.write("<br/><img src = '../common/images/img2.png'/>");	
+}
+
+var jumsu=prompt("점수입력 ");
+//다중 if(else~if) : 점수를 입력받아서 0점 미만이라면 "점수는 0점 미만일 수 없습니다."
+// 100점 초과라면 "점수는 100점을 초과할 수 없습니다." 그렇지 않다면 "입력성공"을 비교하는
+// 코드 작성
+
+if(jumsu < 0){
+	document.write("<br/>점수는 0점 미만일 수 없습니다.")
+}else if(jumsu > 100){
+	document.write("<br/>점수는 100점을 초과할 수 없습니다.")
+	
+}else{
+	document.write("<br/>입력성공")
+}
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>
