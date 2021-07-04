@@ -10,4 +10,4 @@ FRONT-END
 * jquery
 
 [onenote](https://github.com/RyuKyeongWoo/sist_front-end/blob/master/OneNote%20Review)
-[html](https://github.com/RyuKyeongWoo/sist_front-end/blob/master/OneNote%20Review/HTML.one)
+[html](<a href="/RyuKyeongWoo/sist_front-end/blob/master/OneNote%20Review/HTML.one?raw=true">View raw</a>)
