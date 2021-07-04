@@ -9,5 +9,5 @@ FRONT-END
 * javascript
 * jquery
 
-[onenote](sist_front-end/OneNote Review/)
-[html](sist_front-end/OneNote Review/html.one)
+[onenote](https://github.com/RyuKyeongWoo/sist_front-end/blob/master/OneNote%20Review)
+[html](https://github.com/RyuKyeongWoo/sist_front-end/blob/master/OneNote%20Review/HTML.one)
